@@ -1,0 +1,617 @@
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is Kathripugge.</p>
+
+
+<button id="order" type="button" onclick="transaction()">Click to Order !!!</button>
+
+ <script>
+
+
+ function transaction() {
+ 	//window.alert("sup!!!");
+
+ 	var l = document.getElementById("order");
+ 	document.body.removeChild(l);
+
+    var x = document.createElement("FORM");
+    x.setAttribute("id", "order");
+    document.body.appendChild(x);
+
+    x.setAttribute("action","{{ url_for('transaction_success') }}");
+    x.setAttribute("method","POST");
+
+    var node = document.createElement('div');
+    node.innerHTML = '<table style="width:100%">'
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr id="r1"><td><input type="checkbox" id="pizza1" name="pizza" value="Spicy Delight Veg Pizza" onchange="quantity1()" > <label for="pizza1"> Spicy Delight Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza2" name="pizza" value="Country Special Veg Pizza" onchange="quantity2()"> <label for="pizza2"> Country Special Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza3" name="pizza" value="Farm House Veg Pizza" onchange="quantity3()"> <label for="pizza3"> Farm House Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza4" name="pizza" value="Mexican Green Wave Veg Pizza" onchange="quantity4()"> <label for="pizza4"> Mexican Green Wave Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza5" name="pizza" value="5 Pepper Veg Pizza" onchange="quantity5()"> <label for="pizza5"> 5 Pepper Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza6" name="pizza" value="Cheese and Barbeque Chicken Non-Veg Pizza" onchange="quantity6()"> <label for="pizza6"> Cheese and Barbeque Chicken Non-Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza7" name="pizza" value="Chicken Fiesta Non-Veg Pizza" onchange="quantity7()"> <label for="pizza7"> Chicken Fiesta Non-Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza8" name="pizza" value="Spicy Chicken Non-Veg Pizza" onchange="quantity8()"> <label for="pizza8"> Spicy Chicken Non-Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza9" name="pizza" value="Zesty Chicken Non-Veg Pizza" onchange="quantity9()"> <label for="pizza9"> Zesty Chicken Non-Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+
+
+    
+    var node = document.createElement('div');        
+    node.innerHTML = '<tr><td><input type="checkbox" id="pizza10" name="pizza" value="Chicken Mexicana Non-Veg Pizza" onchange="quantity10()"> <label for="pizza10"> Chicken Mexicana Non-Veg Pizza </label></td></tr>';
+
+    x.appendChild(node);
+    
+    var node = document.createElement('div');
+    node.innerHTML = '</table>'
+
+    var br = document.createElement("br");
+	x.appendChild(br);
+	var br = document.createElement("br");
+	x.appendChild(br);
+
+
+    var submit = document.createElement("input");
+    submit.setAttribute("type","submit");
+    submit.setAttribute("value","Submit");
+    x.appendChild(submit);
+
+ 
+}
+
+/*
+function quantity(id)
+{
+    var arr = []
+    for (i = 0; i < 10; i++) {
+        arr[i] = document.getElementById("pizza"+(i+1));
+        //alert(arr[i].id);
+    }
+    //var item = document.getElementById(id);
+    //alert(id);
+    
+    for(i=0;i<arr.length;i++)
+    {
+        if(arr[i].checked==true)
+        {
+            alert(arr[i].id);
+            var x = document.getElementById(arr[i].id).parentNode;
+            
+            //alert(y.value);
+            x.innerHTML += '<td> <input type="number" name="quantity" id='+"q_"+arr[i].id+' value="1" min="0"></td></tr>';
+            var y = document.getElementById(arr[i].id);
+            y.checked = true;
+        }
+        
+        else
+        {
+         var x = document.getElementById(arr[i].id).parentNode;
+            
+            //alert(y.value);
+            //x.innerHTML -= '<td> <input type="number" name="quantity" id='+"q_"+arr[i].id+' value="1" min="0"></td></tr>';
+            
+            
+        }
+        
+    }    
+}
+*/
+
+
+
+
+function quantity1()
+{
+   /* var arr = []
+    for (i = 0; i < 10; i++) {
+        arr[i] = document.getElementById("pizza"+(i+1));
+        //alert(arr[i].id);
+    }*/
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza1').parentNode;
+    var y = document.getElementById('pizza1');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza1');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza1" name="pizza" value="Spicy Delight Veg Pizza" onchange="quantity1()" checked=true> <label for="pizza1"> Spicy Delight Veg Pizza </label></td> <td id="q1"> <input type="number" name="quantity" id=q_pizza1 value="1" min="0"></td><td> <input type="button" id="p1" onclick="inc(\'q_pizza1\')" value="+"></td> <td> <input type="button" id="m1" onclick="dec(\'q_pizza1\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza1').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza1 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza1');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza1').parentNode;
+        var b=document.getElementById('q_pizza1');
+        a.removeChild(b);
+        var a=document.getElementById('p1').parentNode;
+        var b=document.getElementById('p1');
+        a.removeChild(b);
+        var a=document.getElementById('m1').parentNode;
+        var b=document.getElementById('m1');
+        a.removeChild(b);
+
+  
+    }
+    
+    
+}
+function quantity2()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza2').parentNode;
+    var y = document.getElementById('pizza2');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza2');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza2" name="pizza" value="Country Special Veg Pizza" onchange="quantity2()" checked=true> <label for="pizza2"> Country Special Veg Pizza </label></td> <td id="q2"> <input type="number" name="quantity" id=q_pizza2 value="1" min="0"></td><td> <input type="button" id="p2" onclick="inc(\'q_pizza2\')" value="+"></td> <td> <input type="button" id="m2" onclick="dec(\'q_pizza2\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza2').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza2 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza2');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza2').parentNode;
+        var b=document.getElementById('q_pizza2');
+        a.removeChild(b);
+        var a=document.getElementById('p2').parentNode;
+        var b=document.getElementById('p2');
+        a.removeChild(b);
+        var a=document.getElementById('m2').parentNode;
+        var b=document.getElementById('m2');
+        a.removeChild(b);
+    }
+    
+    
+}
+
+function quantity3()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza3').parentNode;
+    var y = document.getElementById('pizza3');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza3');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza3" name="pizza" value="Farm House Veg Pizza" onchange="quantity3()" checked=true> <label for="pizza3"> Farm House Veg Pizza </label></td> <td id="q3"> <input type="number" name="quantity" id=q_pizza3 value="1" min="0"></td><td> <input type="button" id="p3" onclick="inc(\'q_pizza3\')" value="+"></td> <td> <input type="button" id="m3" onclick="dec(\'q_pizza3\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza3').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza3 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza3');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza3').parentNode;
+        var b=document.getElementById('q_pizza3');
+        a.removeChild(b);
+        var a=document.getElementById('p3').parentNode;
+        var b=document.getElementById('p3');
+        a.removeChild(b);
+        var a=document.getElementById('m3').parentNode;
+        var b=document.getElementById('m3');
+        a.removeChild(b);
+  
+    }
+    }
+
+
+function quantity4()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza4').parentNode;
+    var y = document.getElementById('pizza4');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza4');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza4" name="pizza" value="Mexican Green Wave Veg Pizza" onchange="quantity4()" checked=true> <label for="pizza4"> Mexican Green Wave Veg Pizza </label></td> <td id="q4"> <input type="number" name="quantity" id=q_pizza4 value="1" min="0"></td><td> <input type="button" id="p4" onclick="inc(\'q_pizza4\')" value="+"></td> <td> <input type="button" id="m4" onclick="dec(\'q_pizza4\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza4').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza4 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza4');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza4').parentNode;
+        var b=document.getElementById('q_pizza4');
+        a.removeChild(b);
+        var a=document.getElementById('p4').parentNode;
+        var b=document.getElementById('p4');
+        a.removeChild(b);
+        var a=document.getElementById('m4').parentNode;
+        var b=document.getElementById('m4');
+        a.removeChild(b);
+  
+    }
+    }
+
+
+function quantity5()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza5').parentNode;
+    var y = document.getElementById('pizza5');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza5');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza5" name="pizza" value="5 Pepper Veg Pizza" onchange="quantity5()" checked=true> <label for="pizza5"> 5 Pepper Veg Pizza </label></td> <td id="q5"> <input type="number" name="quantity" id=q_pizza5 value="1" min="0"></td><td> <input type="button" id="p5" onclick="inc(\'q_pizza5\')" value="+"></td> <td> <input type="button" id="m5" onclick="dec(\'q_pizza5\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza5').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza5 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza5');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza5').parentNode;
+        var b=document.getElementById('q_pizza5');
+        a.removeChild(b);
+        var a=document.getElementById('p5').parentNode;
+        var b=document.getElementById('p5');
+        a.removeChild(b);
+        var a=document.getElementById('m5').parentNode;
+        var b=document.getElementById('m5');
+        a.removeChild(b);
+  
+    }
+    }
+
+
+function quantity6()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza6').parentNode;
+    var y = document.getElementById('pizza6');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza6');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza6" name="pizza" value="Cheese and Barbeque Chicken Non-Veg Pizza" onchange="quantity6()" checked=true> <label for="pizza6"> Cheese and Barbeque Chicken Non-Veg Pizza </label></td> <td id="q6"> <input type="number" name="quantity" id=q_pizza6 value="1" min="0"></td><td> <input type="button" id="p6" onclick="inc(\'q_pizza6\')" value="+"></td> <td> <input type="button" id="m6" onclick="dec(\'q_pizza6\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza6').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza6 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza6');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza6').parentNode;
+        var b=document.getElementById('q_pizza6');
+        a.removeChild(b);
+        var a=document.getElementById('p6').parentNode;
+        var b=document.getElementById('p6');
+        a.removeChild(b);
+        var a=document.getElementById('m6').parentNode;
+        var b=document.getElementById('m6');
+        a.removeChild(b);
+    }
+    }
+
+
+
+function quantity7()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza7').parentNode;
+    var y = document.getElementById('pizza7');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza7');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza7" name="pizza" value="Chicken Fiesta Non-Veg Pizza" onchange="quantity7()" checked=true> <label for="pizza7"> Chicken Fiesta Non-Veg Pizza </label></td> <td id="q7"> <input type="number" name="quantity" id=q_pizza7 value="1" min="0"></td><td> <input type="button" id="p7" onclick="inc(\'q_pizza7\')" value="+"></td> <td> <input type="button" id="m7" onclick="dec(\'q_pizza7\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza7').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza7 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza7');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza7').parentNode;
+        var b=document.getElementById('q_pizza7');
+        a.removeChild(b);
+        var a=document.getElementById('p7').parentNode;
+        var b=document.getElementById('p7');
+        a.removeChild(b);
+        var a=document.getElementById('m7').parentNode;
+        var b=document.getElementById('m7');
+        a.removeChild(b);
+    }
+    }
+
+
+function quantity8()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza8').parentNode;
+    var y = document.getElementById('pizza8');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza8');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza8" name="pizza" value="Spicy Chicken Non-Veg Pizza" onchange="quantity8()" checked=true> <label for="pizza8"> Spicy Chicken Non-Veg Pizza </label></td> <td id="q8"> <input type="number" name="quantity" id=q_pizza8 value="1" min="0"></td><td> <input type="button" id="p8" onclick="inc(\'q_pizza8\')" value="+"></td> <td> <input type="button" id="m8" onclick="dec(\'q_pizza8\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza8').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza8 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza8');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza8').parentNode;
+        var b=document.getElementById('q_pizza8');
+        a.removeChild(b);
+        var a=document.getElementById('p8').parentNode;
+        var b=document.getElementById('p8');
+        a.removeChild(b);
+        var a=document.getElementById('m8').parentNode;
+        var b=document.getElementById('m8');
+        a.removeChild(b);
+  
+    }
+    }
+
+function quantity9()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza9').parentNode;
+    var y = document.getElementById('pizza9');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza9');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza9" name="pizza" value="Zesty Chicken Non-Veg Pizza" onchange="quantity9()" checked=true> <label for="pizza9"> Zesty Chicken Non-Veg Pizza </label></td> <td id="q9"> <input type="number" name="quantity" id=q_pizza9 value="1" min="0"></td><td> <input type="button" id="p9" onclick="inc(\'q_pizza9\')" value="+"></td> <td> <input type="button" id="m9" onclick="dec(\'q_pizza9\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza9').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza9 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza9');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza9').parentNode;
+        var b=document.getElementById('q_pizza9');
+        a.removeChild(b);
+        var a=document.getElementById('p9').parentNode;
+        var b=document.getElementById('p9');
+        a.removeChild(b);
+        var a=document.getElementById('m9').parentNode;
+        var b=document.getElementById('m9');
+        a.removeChild(b);
+  
+    }
+    }
+
+function quantity10()
+{
+  
+    //var item = document.getElementById(id);
+    //alert(id);
+    var x = document.getElementById('pizza10').parentNode;
+    var y = document.getElementById('pizza10');    
+    //alert(y.id);
+    if(y.checked==true)
+            {
+            
+            //alert(y.value);
+                //var y = document.getElementById('pizza10');
+                x.innerHTML = '<tr><td><input type="checkbox" id="pizza10" name="pizza" value="Chicken Mexicana Non-Veg Pizza" onchange="quantity10()" checked=true> <label for="pizza10"> Chicken Mexicana Non-Veg Pizza </label></td> <td id="q10"> <input type="number" name="quantity" id=q_pizza10 value="1" min="0"></td><td> <input type="button" id="p10" onclick="inc(\'q_pizza10\')" value="+"></td> <td> <input type="button" id="m10" onclick="dec(\'q_pizza10\')" value="-"></td></tr>';
+                
+//            x.innerHTML += ></tr>';
+//            y.checked = true;
+    }
+    var y = document.getElementById('pizza10');
+    if (y.checked==false)
+    {
+    /*var x = document.getElementById('pizza10').parentNode;
+    
+        x.innerHTML -= '<td> <input type="number" name="quantity" id=q_pizza10 value="1" min="0"></td></tr>';
+        x.innerHTML += '</tr>';
+        var y=document.getElementByid('pizza10');
+        y.checked=false;*/
+        
+        var a=document.getElementById('q_pizza10').parentNode;
+        //alert(a);
+        var b=document.getElementById('q_pizza10');
+        a.removeChild(b);
+        var a=document.getElementById('p10').parentNode;
+        var b=document.getElementById('p10');
+        a.removeChild(b);
+        var a=document.getElementById('m10').parentNode;
+        var b=document.getElementById('m10');
+        a.removeChild(b);
+    }
+    }
+
+
+
+function inc(id)
+{
+    var x = document.getElementById(id);
+
+    //alert(x.id);
+    y = Number(x.value);
+    //alert(typeof Number(x.value));
+    //alert(y);
+    y+=1;
+    //x.value = String(y);
+    x.value = y;
+
+}
+
+function dec(id)
+{
+    var x = document.getElementById(id);
+    //alert(typeof x.value);
+    y = Number(x.value);
+    if(y==0)
+    {
+        x.value = 0;
+    }
+    else
+    {
+        y-=1;
+        x.value = y;    
+    }
+       
+}
+
+ </script> 
+
+</body>
+</html> 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <style>
+    
+</style>
+<link rel="stylesheet" type="text/css"
+         href = "{{ url_for('static', filename = 'Google.css') }}" / >
+</head>
+
+<body>
+
+<h1 align="center"> RESTAURANT FRANCHISE MANAGEMENT </h1>
+
+<h4 align="center" color="crimson">Branches</h4>
+
+	<form name="branch" action="{{ url_for('branch') }}" method="POST">
+		<p align="center">
+ <select name="branch" id="locations">
+  <option value="Girinagar">Girinagar</option>
+  <option value="Kathripugge">Kathriguppe</option>
+  <option value="Hosakerehalli">Hosakerehalli</option>
+  <option value="Arekere">Arekere</option>
+  <option value="Silk Board">Silk Board</option>
+  <option value="Ashok Nagar">Ashok Nagar</option>
+  <option value="Jayanagar">Jayanagar</option>
+  <option value="Marathalli">Marathalli</option>
+  <option value="Koramangala">Koramangala</option>
+  <option value="HRBR Layout">HRBR Layout</option>
+</select>
+<br /><br />
+<input  type="submit" value="Go">
+</p>
+</form>
+
+</body>
+</html>

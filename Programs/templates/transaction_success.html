@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Bill</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td {
+    padding: 5px;
+    text-align: left;
+}
+table {
+    width: 75%;
+}
+
+th {
+    padding: 5px;
+    text-align: center;
+}
+
+tr:hover {background-color:#f5f5f5;}
+
+body{
+    background-image:url({{ url_for('static' , filename ='bg.jpg' )}});
+}
+</style>
+</head>
+
+
+
+
+<body>
+
+<table >
+  <caption><h1><b> Total Bill <b></h1></caption>
+  <tr>
+    <th>order_id: {{rows[4]}} </th>
+    <th>bill_id: {{rows[4]}}</th>
+    <th colspan="2">Branch: {{rows[3]}}</th>
+    <th>Date: {{rows[5]}}</th>
+  </tr>
+  <tr>
+    <th colspan="2">Items</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Price</th>
+  </tr>
+  {% for i in range(rows[1]|length) %}
+  <tr>
+    <td colspan="2">{{rows[0][i]}}</td>
+    <td>{{rows[1][i]}}</td>
+    <td>{{rows[6][i]}}</td>
+    <th>{{rows[7][i]}}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td colspan="4">Total :</td>
+    <td>{{rows[8]}}</td>
+  </tr>
+  <tr>
+    <th>Customer Name</th>
+    <td>{{rows[9]}}</td>
+    <th colspan="2">Customer Phone Number</th>
+    <td>{{rows[2]}}</td>
+  </tr>
+
+</table>
+
+
+
+<!--
+<table class='pizza_value'>
+    {% for row in rows[0] %}
+    <tr>
+      <td> {{ row }} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+ <table class='quantity_value'>
+    {% for row in rows[1] %}
+    <tr>
+      <td> {{ row }} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <table class='contact_no_value'>
+    <tr>
+      <td> {{ rows[2] }} </td>
+    </tr>
+  </table>
+
+
+  <table class='branch_value'>
+    <tr>
+      <td> {{ rows[3] }} </td>
+    </tr>
+  </table>
+-->
+</body>
+</html>

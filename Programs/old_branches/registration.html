@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<form name="new_customer" action="{{ url_for('user_created') }}" method="POST">
+	<label>Enter Name : </label><input type='TEXT' id='name' name='name'></input>
+	<br />
+	<label>Enter Contact Number: </label> <input type='TEXT' id='conatct_no' name='contact_no' value={{rows[0]}}></input>
+	<br />
+	<label>Enter Email-id : </label><input type='TEXT' id='email' name='email'></input>
+	<br />
+
+	<input  type="submit" value="Register">
+
+</form>
+
+</body>

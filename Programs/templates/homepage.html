@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  select {
+      width: 100%;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #f1f1f1;
+  }
+
+  input[type=submit]
+  {
+      background-color: black;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+  }
+h1,h2{
+  color: black;
+}
+
+body{
+    background-image:url({{ url_for('static' , filename ='bg.jpg' )}});
+}
+
+div {
+    border: 1px solid gray;
+    padding: 8px;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+}
+
+p {
+    text-indent: 50px;
+
+    letter-spacing: 3px;
+    line-height: 1.8;
+}
+
+#order{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+</style>
+
+<link rel="stylesheet" type="text/css"
+         href = "{{ url_for('static', filename = 'Google.css') }}" / >
+
+</head>
+
+<body>
+
+<h1 align="center" > RESTAURANT FRANCHISE MANAGEMENT </h1>
+
+<h2 align="center" >Branches</h2>
+
+
+<form name="branch" action="{{ url_for('branch') }}" method="POST">
+ <select name="branch" id="locations">
+  <option value="Girinagar">Girinagar</option>
+  <option value="Kathripugge">Kathriguppe</option>
+  <option value="Hosakerehalli">Hosakerehalli</option>
+  <option value="Arekere">Arekere</option>
+  <option value="Silk Board">Silk Board</option>
+  <option value="Ashok Nagar">Ashok Nagar</option>
+  <option value="Jayanagar">Jayanagar</option>
+  <option value="Marathalli">Marathalli</option>
+  <option value="Koramangala">Koramangala</option>
+  <option value="HRBR Layout">HRBR Layout</option>
+</select>
+
+<br /><br />
+
+<input  type="submit" value="Go">
+</p>
+</form>
+
+
+<button id="order" type="button" onclick="user()">Click to Order !!!</button>
+
+
+
+<div>
+<h1>About Us</h1>
+<pre>
+  New to E che Pizza???
+
+  1) Select a branch to know more.
+  2) Click to order to place an order.
+</pre>
+</div>
+
+<script>
+
+function user()
+{
+
+    var l = document.getElementById("order");
+    document.body.removeChild(l);
+    
+    var a = document.createElement('div');
+    a.innerHTML = "<p> Enter Contact Number : </p>";
+    document.body.appendChild(a);
+    var x = document.createElement("FORM");
+    x.setAttribute("id","user");
+    document.body.appendChild(x);
+    x.setAttribute("action","{{ url_for('check_user') }}");
+    x.setAttribute("method","POST");
+
+    var y = document.createElement("INPUT");
+    y.setAttribute("id","contact_no");
+    y.setAttribute("name","contact_no");
+    x.appendChild(y);
+
+
+    var br = document.createElement("br");
+    x.appendChild(br);
+    var br = document.createElement("br");
+    x.appendChild(br);
+
+
+    var submit = document.createElement("input");
+    submit.setAttribute("type","submit");
+    submit.setAttribute("value","Submit");
+    x.appendChild(submit);
+
+}
+
+
+</script>
+
+</body>
+</html>

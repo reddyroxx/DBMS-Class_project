@@ -1,0 +1,83 @@
+value
+    {
+      border:1px solid black;
+      display: none;
+    }
+    #map
+    {
+      float:right;
+      width:80%;
+      height:950px;
+      position: absolute;
+      right:0px;
+    
+    }
+    #menu
+    {
+      float:left;
+      width:20%;
+      position: absolute;
+      left:0px;
+      height:800px;
+
+    }
+    #vertical
+    {
+      border:1px solid black;
+      position: absolute;
+      left:19%;
+      height:950px;
+    }
+    #select
+    {
+      width: 300px;
+      height: 25px;
+      background-color: white;
+    }
+    input[type=submit]
+    {
+      width:80px;
+      height:25px;
+    }
+    #MenuBar
+    {
+      height:100px;
+      width:100%;
+      background:#333;
+    }
+    #Logo
+    {
+      float:left;
+    }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}

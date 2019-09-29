@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>QUERIES</title>
+
+
+<style>
+
+body {
+    background-image: url({{ url_for('static' , filename ='bg.png' )}});
+}
+h3 {
+    color: white;
+}
+body
+{
+color: white;
+}
+</style>
+</head>
+
+<body>
+  <p ><h1  style="text-align:center;color: white;"><big> Some Additional Queries</big></h1></p>
+
+<h3>Query 1:</h3>
+<form name="query" action="{{ url_for('query') }}" method="POST">
+<label>Enter dept_name : </label><input type='TEXT' id='id' name='dept_name'></input>
+<label>Enter sec_id: </label> <input type='TEXT' id='id' name='sec_id' ></input>
+<label>Enter salary: </label> <input type='TEXT' id='amt' name='amt' ></input>
+<input  type="submit" value="Submit query">
+</form>
+
+<h3>Query 2:</h3>
+<form name="query" action="{{ url_for('query1') }}" method="POST">
+<label>Enter lib_id : </label><input type='TEXT' id='id' name='lib_id'></input>
+<label>Enter amt_balance: </label> <input type='TEXT' id='id' name='amt' ></input>
+<input  type="submit" value="Submit query">
+</form>
+
+<h3>Query 3:</h3>
+<form name="query" action="{{ url_for('query2') }}" method="POST">
+<h3>names and salary of instructors who teach courses that have prereqs and with a salary>70000 </h3>
+<input  type="submit" value="Submit query">
+</form>
+
+<h3>Query 4:</h3>
+<form name="query" action="{{ url_for('query3') }}" method="POST">
+<label>Enter lib_id : </label><input type='TEXT' id='id' name='lib_id'></input>
+<label>Enter tot_cred: </label> <input type='INTEGER' id='id' name='cred' ></input>
+<input  type="submit" value="Submit query">
+</form>
+
+<h3>Query 5:</h3>
+<form name="query" action="{{ url_for('query4') }}" method="POST">
+<h3>Course names and instructor names for courses which have same prereq from civil department</h3>
+<input  type="submit" value="Submit query">
+</form>
+
+</body>
+</html>
